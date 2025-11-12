@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contato</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="fieldset">
+       <form action="">
+          <fieldset>
+            <div class="name">
+              <legend>Contato conosco</legend>
+               <label for="nome">Nome:</label>
+                <input placeholder="nome"  id="nome" name="nome" type="text">
+              </div>
+<br>
+               <div class="email">                                        
+                <label for="email">E-mail</label>
+                <input placeholder="email" id="email" name="email" type="email">
+           </div>
+<br>
+               <div class="assunto">                                        
+                <label for="assunto">assunto</label>
+                <select name="assunto" id="assunto">
+                   <option value="feedback">Retorno sobre o projeto</option>
+                   <option value="sugest">Sugestão para projeto</option>
+                   <option value="new-project">Novo projeto</option>
+                   <option value="mensagem">Uma mensagem</option>
+                </select>
+            </div>
+<br>
+            <div>
+                <label for="mensagem">mensagem</label>
+                <textarea placeholder="mensagem" nome="mensagem" id="mensagem" cols="82" rows="20"></textarea>
+            </div>
+             
+<br>
+           </fieldset> 
+           <button type="submit">enviar</button>
+          </form>
+        </div>
+        <script>
+            function validaForm(){
+                const email = document.getElementById('email');
+                let emailText= email.value.trim();
+                let valido = false
+                if(emailText.includes("@")){
+                    console.log("achei @!")
+                    valido = true;
+                } else{
+                    valido = false;
+                }
+
+                let partesEmail = emailText.split("@");
+                if(partesEmail[0].length >=7 && partesEmail[0].length <=127){
+                    console.log("o tamanho está entre 7 e 127");
+                    valido = true;
+                } else{
+                    valido = false;
+                }
+
+                 
+                const nome= document.getElementById("nome");
+                let nomeText = nome.value.trim();
+                if(nome.length >=3){
+                    console.log("nome atende ao tamanho minimo")
+                    valido = true;
+                } else{
+                    valido = false;
+                }
+
+                const textArea = document.getElementById("mensagem");
+                let textTexto = textArea.value.trim();
+                if(textTexto !== ""){
+                    valido = true;}{
+                        valido = false;
+                    }
+
+                    if(valido){
+                        alert("recebemos sua mensagem, em breve entraremos em contato.")
+                    } else{alert("temos um erro no formulario,corrija para seguir!")
+                }
+                    
+            }
+            document.addEventListener("submit",function(e){
+                e.preventDefault();
+                validaForm();
+            })
+        </script>
+</body>
+</html>
