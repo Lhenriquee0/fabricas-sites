@@ -9,19 +9,21 @@ body {
   display: flex;
   margin: 0 auto;
   justify-content: auto;
+  padding: 10px 10px
 }
 
+
 .nav {
-  width: 500px;
+  width: 3000px;
   margin: 0 auto;
+  
 }
 
 .navbar a {
   float: left;
   display: block;
   color: aliceblue;
-  text-align: center;
-  padding: 14px 16px;
+  padding: 16px 18px;
   text-decoration: none;
 
 }
